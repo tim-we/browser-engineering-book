@@ -12,8 +12,18 @@ jobs:
           python-version: 3.9
           cache: pip
       - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make pandoc python3 \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended texlive-fonts-extra
+      - name: Install dependencies
         run: python -m pip install -r requirements.txt --no-deps
       - uses: r-lib/actions/setup-pandoc@v2
         with:
           pandoc-version: 3.2.1
-      - run: make book lint
+      - run: make book
+      - run: |
+          make latex/book.tex
+          make latex/book.pdf
+

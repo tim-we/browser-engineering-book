@@ -1,6 +1,8 @@
 name: Make and test the book
 
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
 
 jobs:
   build:

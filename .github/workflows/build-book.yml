@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y make pandoc python3 \
+          sudo apt-get install -y make pandoc python3 imagemagick \
             texlive-latex-base texlive-latex-recommended texlive-latex-extra \
             texlive-fonts-recommended texlive-fonts-extra texlive-lang-cjk
       - name: Install dependencies
